@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <RollingFile
+                name="FileLogger"
+                fileName="logs/java-boilerplate.log"
+                filePattern="logs/java-package-%d{yyyy-MM-dd}.log"
+                append="true">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="10MB"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <!--<Root level="trace">-->
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileLogger" level="DEBUG"/>
+        </Root>
+    </Loggers>
+</Configuration>
