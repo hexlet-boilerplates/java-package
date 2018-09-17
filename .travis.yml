@@ -6,7 +6,7 @@ jdk:
 sudo: false
 
 install:
-    - ./mvnw install
+    - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 cache:
   directories:
