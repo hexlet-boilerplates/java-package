@@ -6,7 +6,6 @@ jdk:
 sudo: false
 
 install:
-    - mvn -N io.takari:maven:wrapper -Dmaven=3.5.4
     - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
 cache:
