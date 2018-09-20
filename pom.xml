@@ -8,13 +8,6 @@
     <artifactId>java-package</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <repositories>
-        <repository>
-            <id>jitpack.io</id>
-            <url>https://jitpack.io</url>
-        </repository>
-    </repositories>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -36,12 +29,6 @@
     </properties>
 
     <dependencies>
-
-        <dependency>
-            <groupId>com.github.Vyacheslav-Lapin</groupId>
-            <artifactId>java-package</artifactId>
-            <version>321be7c79e</version>
-        </dependency>
 
         <!-- COMMON LIBS (Log4J2 & Vavr) -->
         <dependency>
