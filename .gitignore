@@ -1,6 +1,6 @@
 /**/logs/
 
 /**/target/
-/.mvn/wrapper/maven-wrapper.jar
-/.mvn/wrapper/MavenWrapperDownloader.java
+!/.mvn/wrapper/maven-wrapper.properties
+/**/.mvn/
 /pom.xml.versionsBackup
