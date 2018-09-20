@@ -1,6 +1,6 @@
 # java-package
 
-[![Build Status](https://jitpack.io/v/Vyacheslav-Lapin/java-package.svg)](https://jitpack.io/#Vyacheslav-Lapin/java-package)
+[![Build Status](https://jitpack.io/v/hexlet-boilerplates/java-package.svg)](https://jitpack.io/#hexlet-boilerplates/java-package)
 
 ## Setup
 $ make build
