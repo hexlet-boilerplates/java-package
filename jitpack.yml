@@ -1,5 +1,5 @@
 jdk:
-  - openjdk11
+  - openjdk11-ea
 install:
   - echo "Running a custom install command"
   - ./mvnw clean install -DskipTests
