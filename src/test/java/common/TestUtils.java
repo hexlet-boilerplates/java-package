@@ -12,14 +12,20 @@ import java.util.function.Consumer;
 
 public interface TestUtils {
 
-    @NotNull
-    static String fromPrintStream(@NotNull Consumer<PrintStream> printStreamConsumer) {
+    @NotNull // Метод никогда не вернёт null
+    static String fromPrintStream(@NotNull Consumer<PrintStream> printStreamConsumer) { // Передавать в метод null в качестве значения аргумента нельзя - за этим проследит CheckerFramework при компиляции
         val out = new ByteArrayOutputStream();
         @Cleanup val printStream = new PrintStream(out);
         printStreamConsumer.accept(printStream);
         return new String(out.toByteArray()).intern();
     }
 
+    /**
+     * Метод выполняет переданный ему код и возвращает строку, которая была записана в исходящий поток вывода
+     * {@code System.out} во время его выполнения.
+     * @param task
+     * @return
+     */
     @NotNull
     @SneakyThrows
     @Contract("_ -> new")
