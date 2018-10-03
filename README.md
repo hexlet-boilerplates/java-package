@@ -1,8 +1,13 @@
 # java-package
 
-[![Build Status](https://jitpack.io/v/hexlet-boilerplates/java-package.svg)](https://jitpack.io/#hexlet-boilerplates/java-package)  
-  
-Типовой проект со всей минимально необходимой структурой. Подойдёт в качестве отправной точки для небольшого проекта. 
+[![Build Status](https://jitpack.io/v/hexlet-boilerplates/java-package.svg)](https://jitpack.io/#hexlet-boilerplates/java-package)
+[![Build Status](https://travis-ci.org/hexlet-boilerplates/java-package.svg?branch=master)](https://travis-ci.org/hexlet-boilerplates/java-package)
+
+Типовой проект со всей минимально-необходимой структурой. Подойдёт в качестве отправной точки для небольшого проекта.
+
+## Start
+
+$ make
 
 ## Setup
 ```bash

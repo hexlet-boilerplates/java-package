@@ -15,9 +15,7 @@
         <!--Project settings-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>10</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>10</maven.compiler.release>
 
         <!--Libs-->
         <log4j-slf4j-impl.version>2.11.1</log4j-slf4j-impl.version>
@@ -31,11 +29,13 @@
         <assertj-core.version>3.11.1</assertj-core.version>
 
         <!--Plugins-->
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <maven-assembly-plugin.version>3.1.0</maven-assembly-plugin.version>
         <jacoco-maven-plugin.version>0.8.2</jacoco-maven-plugin.version>
         <maven-enforcer-plugin.version>3.0.0-M2</maven-enforcer-plugin.version>
-
         <maven-surefire-plugin.version>2.22.0</maven-surefire-plugin.version>
+        <sonar-maven-plugin.version>2.7.1</sonar-maven-plugin.version>
+
     </properties>
 
     <dependencies>
@@ -98,6 +98,26 @@
     <build>
 
         <plugins>
+
+            <!-- COMPILER (Java10+ and lombok compatible) -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <compilerArgs>
+                        <arg>-parameters</arg>
+                    </compilerArgs>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm</artifactId>
+                        <version>6.2.1</version> <!-- Use newer version of ASM -->
+                    </dependency>
+                </dependencies>
+            </plugin>
+
             <!-- JAR with dependencies -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -176,6 +196,21 @@
                     <includes>
                         <include>**/*Test.java</include>
                     </includes>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>${sonar-maven-plugin.version}</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                    <rulesUri>file://${project.basedir}/maven-version-rules.xml</rulesUri>
                 </configuration>
             </plugin>
 

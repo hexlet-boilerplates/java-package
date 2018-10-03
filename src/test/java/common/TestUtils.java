@@ -23,12 +23,10 @@ public interface TestUtils {
     /**
      * Метод выполняет переданный ему код и возвращает строку, которая была записана в исходящий поток вывода
      * {@code System.out} во время его выполнения.
-     * @param task
-     * @return
      */
-    @NotNull
-    @SneakyThrows
-    @Contract("_ -> new")
+    @NotNull // Метод никогда не вернёт null
+    @SneakyThrows // Метод будет возбуждать все исключения как unchecked, т.е. не требуя их перехвата
+    @Contract("_ -> new") // Метод каждый раз при вызове создаёт новый объект
     static String fromSystemOutPrint(@NotNull Runnable task) {
         return fromPrintStream(printStream -> {
             PrintStream realOut = System.out;
@@ -38,8 +36,13 @@ public interface TestUtils {
         });
     }
 
+    // Символы конца строки в той ОС, где исполняется наш код
     String LINE_SEPARATOR = System.getProperty("line.separator");
 
+    /**
+     * Метод выполняет переданный ему код и возвращает строку, которая была записана в исходящий поток вывода
+     * {@code System.out} во время его выполнения.
+     */
     static String fromSystemOutPrintln(Runnable runnable) {
         String s = fromSystemOutPrint(runnable);
         return s.endsWith(LINE_SEPARATOR) ?
