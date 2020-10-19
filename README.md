@@ -1,7 +1,7 @@
 # java-package
 
 [![Build Status](https://jitpack.io/v/hexlet-boilerplates/java-package.svg)](https://jitpack.io/#hexlet-boilerplates/java-package)
-[![Build Status](https://travis-ci.org/hexlet-boilerplates/java-package.svg?branch=master)](https://travis-ci.org/hexlet-boilerplates/java-package)
+![Java CI](https://github.com/TanyFV/java-package/workflows/Java%20CI/badge.svg)
 
 Типовой проект со всей минимально-необходимой структурой. Подойдёт в качестве отправной точки для небольшого проекта.
 
