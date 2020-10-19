@@ -1,0 +1,16 @@
+name: Java CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up openJDK
+        uses: joschi/setup-jdk@v2
+        with:
+          java-version: '14'
+      - name: Build with Maven
+        run: make build
