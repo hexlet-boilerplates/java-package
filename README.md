@@ -24,43 +24,19 @@ $ make run
 $ make test
 ```
 
+## Run checkstyle
+```bash
+$ make lint
+```
+
 ## Update dependencies and plugins
 ```bash
 $ make update
 ```
 
-## Jenv
-В *nix и macOS для управления версиями Java\`ы рекомендуется использовать утилиту jenv http://www.jenv.be/ . 
+## asdf
+В *nix и macOS для управления версиями Java\`ы рекомендуется использовать утилиту asdf https://github.com/asdf-vm/asdf. 
 
-### Как установить Jenv на Linux / OS X
-```bash
-$ git clone https://github.com/gcuisinier/jenv.git ~/.jenv
-```
-
-### Установка на Mac OS X через Homebrew
-```bash
-$ brew install jenv
-```
-
-### Конфигурирование
-```bash
-$ jenv add /System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-```
-
-```bash
-$ jenv add /Library/Java/JavaVirtualMachines/jdk17011.jdk/Contents/Home`
-```
-
-### Usage
-   * List managed JDKs%
-      ```bash
-     jenv versions
-      ```
-   * Configure local version (in root directory)
-      ```bash
-     $ jenv local 10.0.2
-      ```
-   * add .java-version to `.git/info/exclude` or `~/.gitignore_global`
    
 [![Hexlet Ltd. logo](https://raw.githubusercontent.com/Hexlet/hexletguides.github.io/master/images/hexlet_logo128.png)](https://ru.hexlet.io/pages/about?utm_source=github&utm_medium=link&utm_campaign=java-package)
 

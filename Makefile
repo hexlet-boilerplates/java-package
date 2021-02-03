@@ -1,5 +1,8 @@
 .DEFAULT_GOAL := build-run
 
+setup:
+	mvn -N io.takari:maven:wrapper -Dmaven=3.6.3
+
 build:
 	./mvnw clean package
 
@@ -14,6 +17,9 @@ build-run: build run
 test:
 	./mvnw surefire:test
 
+lint:
+	./mvnw checkstyle:check
+
 update:
-	./mvnw versions:display-plugin-updates versions:update-properties
+	./mvnw versions:display-property-updates versions:update-properties
 # versions:update-parent - not needed
