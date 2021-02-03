@@ -1,5 +1,8 @@
 .DEFAULT_GOAL := build-run
 
+setup:
+	mvn -N io.takari:maven:wrapper -Dmaven=3.6.3
+
 build:
 	./mvnw clean package
 
