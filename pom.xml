@@ -56,26 +56,6 @@
       <version>${vavr.version}</version>
     </dependency>
 
-    <!-- CODE GENERATION (Lombok & CheckerFramework) -->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>${lombok.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.checkerframework</groupId>
-      <artifactId>checker</artifactId>
-      <version>${checker.version}</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.jetbrains</groupId>
-      <artifactId>annotations</artifactId>
-      <version>${annotations.version}</version>
-      <scope>provided</scope>
-    </dependency>
-
     <!-- TEST (JUnit 5 & Mockito) -->
     <dependency>
       <groupId>org.junit.jupiter</groupId>

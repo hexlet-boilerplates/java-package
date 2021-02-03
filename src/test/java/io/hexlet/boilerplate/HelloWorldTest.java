@@ -1,17 +1,29 @@
 package io.hexlet.boilerplate;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import java.io.*;
+import org.junit.jupiter.api.*;
 
-import static common.TestUtils.fromSystemOutPrintln;
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class HelloWorldTest {
+    private final PrintStream standardOut = System.out;
+    private final ByteArrayOutputStream output = new ByteArrayOutputStream();
+
+    @BeforeEach
+    public void setUp() {
+        System.setOut(new PrintStream(output));
+    }
 
     @Test
     @DisplayName("\"main\" method works correctly")
     void testMain() {
-        assertThat(fromSystemOutPrintln(HelloWorld::main))
+        HelloWorld.main();
+        assertThat(output.toString().trim())
                 .isEqualTo("Hello, World!");
+    }
+
+    @AfterEach
+    public void tearDown() {
+        System.setOut(standardOut);
     }
 }
