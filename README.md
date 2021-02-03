@@ -7,31 +7,33 @@
 
 ## Start
 
-$ make
+```sh
+make
+```
 
 ## Setup
-```bash
-$ make build
+```sh
+make build
 ```
 
 ## Run
-```bash
-$ make run
+```sh
+make run
 ```
 
 ## Run tests
-```bash
-$ make test
+```sh
+make test
 ```
 
 ## Run checkstyle
-```bash
-$ make lint
+```sh
+make lint
 ```
 
 ## Update dependencies and plugins
-```bash
-$ make update
+```sh
+make update
 ```
 
 ## asdf
