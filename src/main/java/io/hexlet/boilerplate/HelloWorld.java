@@ -1,7 +1,7 @@
 package io.hexlet.boilerplate;
 
 public final class HelloWorld {
-    public static void main(String... __) {
+    public static void main(final String... args) {
         System.out.println("Hello, World!");
     }
 }

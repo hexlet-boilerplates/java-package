@@ -4,6 +4,3 @@
 !/.mvn/wrapper/maven-wrapper.properties
 /**/.mvn/
 /pom.xml.versionsBackup
-Dockerfile
-docker-compose.yml
-.m2/

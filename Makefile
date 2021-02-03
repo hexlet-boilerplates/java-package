@@ -17,6 +17,9 @@ build-run: build run
 test:
 	./mvnw surefire:test
 
+lint:
+	./mvnw checkstyle:check
+
 update:
 	./mvnw versions:display-property-updates versions:update-properties
 # versions:update-parent - not needed
