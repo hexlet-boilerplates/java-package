@@ -18,5 +18,5 @@ test:
 	./mvnw surefire:test
 
 update:
-	./mvnw versions:display-plugin-updates versions:update-properties
+	./mvnw versions:display-property-updates versions:update-properties
 # versions:update-parent - not needed
