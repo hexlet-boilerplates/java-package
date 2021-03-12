@@ -1,4 +1,0 @@
-jdk:
-  - oraclejdk10
-install:
-- ./gradlew clean install
