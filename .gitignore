@@ -1,6 +1,7 @@
-/**/logs/
+# Ignore Gradle project-specific cache directory
+.gradle
 
-/**/target/
-!/.mvn/wrapper/maven-wrapper.properties
-/**/.mvn/
-/pom.xml.versionsBackup
+# Ignore Gradle build output directory
+build
+
+**/logs/

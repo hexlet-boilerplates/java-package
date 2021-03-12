@@ -2,6 +2,7 @@ name: Java CI
 
 on:
   - push
+  - pull_request
 
 jobs:
   build:
@@ -13,5 +14,5 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '15'
-      - name: Build with Maven
+      - name: Build with Gradle
         run: make build

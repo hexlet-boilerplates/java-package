@@ -1,25 +1,30 @@
 .DEFAULT_GOAL := build-run
 
 setup:
-	mvn -N io.takari:maven:wrapper -Dmaven=3.6.3
+	./gradlew wrapper --gradle-version 6.8.3
 
-build:
-	./mvnw clean package
+clean:
+	./gradlew clean
 
-install:
-	./mvnw clean install
+build: clean
+	./gradlew build
+
+install: clean
+	./gradlew install
+
+run-dist:
+	./build/install/java-package/bin/java-package
 
 run:
-	java -jar ./target/java-package-1.0-SNAPSHOT-jar-with-dependencies.jar
-
-build-run: build run
+	./gradlew run
 
 test:
-	./mvnw surefire:test
+	./gradlew test
 
 lint:
-	./mvnw checkstyle:check
+	./gradlew checkstyleMain checkstyleTest
 
-update:
-	./mvnw versions:display-property-updates versions:update-properties
-# versions:update-parent - not needed
+check-updates:
+	./gradlew dependencyUpdates
+
+build-run: build run
