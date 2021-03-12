@@ -13,5 +13,5 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: '15'
-      - name: Build with Maven
+      - name: Build with Gradle
         run: make build

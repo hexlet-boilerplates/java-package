@@ -31,7 +31,7 @@ make test
 make lint
 ```
 
-## Update dependencies and plugins
+## Check update dependencies and plugins
 ```sh
 make update
 ```
