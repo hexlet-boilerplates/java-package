@@ -73,6 +73,7 @@
     <module name="FileLength"/>
     <module name="LineLength">
       <property name="fileExtensions" value="java"/>
+      <property name="max" value="120"/>
     </module>
 
     <!-- Checks for whitespace                               -->
@@ -182,7 +183,7 @@
         <!-- Miscellaneous other checks.                   -->
         <!-- See https://checkstyle.org/config_misc.html -->
         <module name="ArrayTypeStyle"/>
-        <module name="FinalParameters"/>
+        <!-- <module name="FinalParameters"/> -->
         <module name="TodoComment"/>
         <module name="UpperEll"/>
 
