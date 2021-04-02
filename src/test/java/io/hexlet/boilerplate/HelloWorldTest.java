@@ -25,7 +25,7 @@ class HelloWorldTest {
     @DisplayName("\"main\" method works correctly")
     void testMain() {
         log.debug("Start test");
-        HelloWorld.main();
+        HelloWorld.main(null);
         assertThat(output.toString().trim())
                 .isEqualTo("Hello, World!");
     }
