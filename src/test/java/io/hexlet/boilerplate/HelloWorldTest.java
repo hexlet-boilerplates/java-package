@@ -26,8 +26,7 @@ class HelloWorldTest {
     void testMain() {
         log.debug("Start test");
         HelloWorld.main(null);
-        assertThat(output.toString().trim())
-                .isEqualTo("Hello, World!");
+        assertThat(output.toString().trim()).isEqualTo("Hello, World!");
     }
 
     @AfterEach
