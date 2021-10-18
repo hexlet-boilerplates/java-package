@@ -38,7 +38,6 @@ dependencies {
 
 test {
   useJUnitPlatform()
-  finalizedBy jacocoTestReport
 }
 
 testlogger {
@@ -46,7 +45,9 @@ testlogger {
 }
 
 jacocoTestReport {
-    dependsOn test
+  reports {
+    xml.required = true
+  }
 }
 
 checkstyle {
