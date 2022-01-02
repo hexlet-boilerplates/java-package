@@ -8,9 +8,9 @@
 plugins {
   id 'application'
   id 'checkstyle'
-  id 'com.adarshr.test-logger' version '3.0.0'
-  id 'com.github.ben-manes.versions' version '0.39.0'
-  id 'io.freefair.lombok' version '6.2.0'
+  id 'com.adarshr.test-logger' version '3.1.0'
+  id 'com.github.ben-manes.versions' version '0.40.0'
+  id 'io.freefair.lombok' version '6.3.0'
   id 'jacoco'
 }
 
@@ -30,8 +30,8 @@ application {
 }
 
 dependencies {
-  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-  testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.1'
+  testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+  testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.2'
   testImplementation 'org.assertj:assertj-core:3.21.0'
   testImplementation 'org.slf4j:slf4j-log4j12:2.0.0-alpha5'
 }
@@ -51,5 +51,5 @@ jacocoTestReport {
 }
 
 checkstyle {
-  toolVersion '9.0'
+  toolVersion '9.2.1'
 }
