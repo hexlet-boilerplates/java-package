@@ -1,15 +1,17 @@
 package io.hexlet.boilerplate;
 
-import java.io.PrintStream;
-import java.io.ByteArrayOutputStream;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.DisplayName;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import lombok.extern.slf4j.Slf4j;
+
 
 @Slf4j
 class HelloWorldTest {
@@ -22,7 +24,7 @@ class HelloWorldTest {
     }
 
     @Test
-    @DisplayName("\"main\" method works correctly")
+    @DisplayName("'main' method works correctly")
     void testMain() {
         log.debug("Start test");
         HelloWorld.main(null);

@@ -5,3 +5,8 @@
 build
 
 **/logs/
+
+.settings
+bin
+.project
+.classpath
