@@ -8,5 +8,5 @@ build
 
 .settings
 bin
-.project
+.project*
 .classpath
