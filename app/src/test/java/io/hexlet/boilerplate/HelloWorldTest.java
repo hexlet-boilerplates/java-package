@@ -28,7 +28,7 @@ class HelloWorldTest {
     void testMain() {
         log.debug("Start test");
         HelloWorld.main(null);
-        assertEquals(output.toString().trim(), "Hello, World!");
+        assertEquals("Hello, World!", output.toString().trim());
     }
 
     @AfterEach
