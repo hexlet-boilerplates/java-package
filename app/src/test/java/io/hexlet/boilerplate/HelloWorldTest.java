@@ -1,6 +1,6 @@
 package io.hexlet.boilerplate;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -28,7 +28,7 @@ class HelloWorldTest {
     void testMain() {
         log.debug("Start test");
         HelloWorld.main(null);
-        assertThat(output.toString().trim()).isEqualTo("Hello, World!");
+        assertEquals(output.toString().trim(), "Hello, World!");
     }
 
     @AfterEach
