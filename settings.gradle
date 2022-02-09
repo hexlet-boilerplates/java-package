@@ -8,4 +8,3 @@
  */
 
 rootProject.name = 'java-package'
-include('app')
