@@ -16,11 +16,10 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - name: Test
+    - name: Build with Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        arguments: test
-
+        arguments: build
     - name: Publish code coverage
       uses: paambaati/codeclimate-action@v3.0.0
       env:
