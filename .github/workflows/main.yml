@@ -19,7 +19,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
-          gradle-executable: ./app/gradlew
+          build-root-directory: app
       # - name: Publish code coverage
       #   uses: paambaati/codeclimate-action@v3.0.0
       #   env:
