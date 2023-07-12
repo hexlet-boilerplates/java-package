@@ -10,13 +10,13 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 class HelloWorldTest {
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream output = new ByteArrayOutputStream();
+    private static Logger log = LoggerFactory.getLogger(HelloWorldTest.class);
 
     @BeforeEach
     public void setUp() {
