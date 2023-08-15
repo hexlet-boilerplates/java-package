@@ -8,36 +8,42 @@ A project template with only the bare minimum of structure. A good starting poin
 
 ## Start
 
-```sh
+```bash
 make
 ```
 
 ## Setup
-```sh
+
+```bash
 make build
 ```
 
 ## Run
-```sh
+
+```bash
 make run
 ```
 
 ## Run tests
-```sh
+
+```bash
 make test
 ```
 
 ## Run checkstyle
-```sh
+
+```bash
 make lint
 ```
 
 ## Check update dependencies and plugins
-```sh
+
+```bash
 make update
 ```
 
 ## asdf
+
 On *nix and macOS to manage Java versions we recommend using asdf https://github.com/asdf-vm/asdf. 
 
    

@@ -1,4 +1,4 @@
-package io.hexlet.boilerplate;
+package io.hexlet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -10,13 +10,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-class HelloWorldTest {
+class ApplicationTest {
     private final PrintStream standardOut = System.out;
     private final ByteArrayOutputStream output = new ByteArrayOutputStream();
-    private static Logger log = LoggerFactory.getLogger(HelloWorldTest.class);
 
     @BeforeEach
     public void setUp() {
@@ -26,8 +23,7 @@ class HelloWorldTest {
     @Test
     @DisplayName("'main' method works correctly")
     void testMain() {
-        log.debug("Start test");
-        HelloWorld.main(null);
+        Application.main(null);
         assertEquals("Hello, World!", output.toString(StandardCharsets.UTF_8).trim());
     }
 
