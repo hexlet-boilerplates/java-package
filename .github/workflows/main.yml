@@ -16,7 +16,6 @@ jobs:
           distribution: 'temurin'
       - uses: gradle/gradle-build-action@v2
         with:
-          arguments: build
-          build-root-directory: app
+          gradle-version: 8.2
       - run: ./gradlew lint
       - run: ./gradlew test
