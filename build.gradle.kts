@@ -6,12 +6,13 @@ plugins {
     id("checkstyle")
     id("io.freefair.lombok") version "8.1.0"
     id("com.github.ben-manes.versions") version "0.47.0"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "io.hexlet"
 version = "1.0-SNAPSHOT"
 
-application { mainClass.set("io.hexlet.blog.Application") }
+application { mainClass.set("io.hexlet.Application") }
 
 repositories {
     mavenCentral()
