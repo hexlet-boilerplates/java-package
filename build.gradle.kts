@@ -5,8 +5,8 @@ plugins {
     application
     jacoco
     id("checkstyle")
-    id("io.freefair.lombok") version "8.2.2"
-    id("com.github.ben-manes.versions") version "0.47.0"
+    id("io.freefair.lombok") version "8.4"
+    id("com.github.ben-manes.versions") version "0.49.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
@@ -20,7 +20,6 @@ repositories {
 }
 
 dependencies {
-    implementation("com.h2database:h2:2.2.220")
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     implementation("org.apache.commons:commons-lang3:3.13.0")
