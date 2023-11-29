@@ -11,18 +11,21 @@ plugins {
 }
 
 group = "io.hexlet"
+
 version = "1.0-SNAPSHOT"
 
 application { mainClass.set("io.hexlet.Application") }
 
-repositories {
-    mavenCentral()
-}
+repositories { mavenCentral() }
 
 dependencies {
+    implementation("org.apache.commons:commons-lang3:3.14.0")
+    implementation("org.apache.commons:commons-collections4:4.4")
+    implementation("org.apache.commons:commons-lang3:3.14.0")
     testImplementation(platform("org.junit:junit-bom:5.10.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-    implementation("org.apache.commons:commons-lang3:3.14.0")
+    testImplementation(platform("org.junit:junit-bom:5.10.1"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
 tasks.test {
@@ -37,8 +40,4 @@ tasks.test {
     }
 }
 
-tasks.jacocoTestReport {
-    reports {
-        xml.required.set(true)
-    }
-}
+tasks.jacocoTestReport { reports { xml.required.set(true) } }
