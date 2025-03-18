@@ -19,11 +19,10 @@ jobs:
           gradle-version: 8.7
       - run: ./gradlew checkstyleMain
       - run: ./gradlew test
-      # - name: Publish code coverage
-      #   uses: paambaati/codeclimate-action@v9.0.0
-      #   env:
-      #     CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-      #     JACOCO_SOURCE_PATH: ${{github.workspace}}/src/main/java
+      - name: Generate coverage report
+        run: make report
+      # - name: Publsish coverage report to codacy
+      #   uses: codacy/codacy-coverage-reporter-action@v1.3.0
       #   with:
-      #     coverageCommand: make report
-      #     coverageLocations: ${{github.workspace}}/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
+      #     project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+      #     coverage-reports: build/reports/jacoco/test/jacocoTestReport.xml
