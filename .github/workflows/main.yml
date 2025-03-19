@@ -14,15 +14,27 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-      - uses: gradle/gradle-build-action@v3
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: 8.7
-      - run: ./gradlew checkstyleMain
-      - run: ./gradlew test
+          fetch-depth: 0
+      - name: Execute Gradle build
+        run: ./gradlew build
       - name: Generate coverage report
         run: make report
-      # - name: Publsish coverage report to codacy
-      #   uses: codacy/codacy-coverage-reporter-action@v1.3.0
+      # - name: Cache SonarQube packages
+      #   uses: actions/cache@v4
       #   with:
-      #     project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-      #     coverage-reports: build/reports/jacoco/test/jacocoTestReport.xml
+      #     path: ~/.sonar/cache
+      #     key: ${{ runner.os }}-sonar
+      #     restore-keys: ${{ runner.os }}-sonar
+      # - name: Cache Gradle packages
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: ~/.gradle/caches
+      #     key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+      #     restore-keys: ${{ runner.os }}-gradle
+      # - name: Build and analyze
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   run: ./gradlew sonar --info
