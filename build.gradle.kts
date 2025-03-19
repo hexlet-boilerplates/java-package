@@ -8,6 +8,8 @@ plugins {
     id("io.freefair.lombok") version "8.6"
     id("com.github.ben-manes.versions") version "0.50.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    // Плагин для публикации отчета о покрытии тестами на SonarQube
+    id("org.sonarqube") version "6.0.1.5171"
 }
 
 group = "io.hexlet"
@@ -38,3 +40,12 @@ tasks.test {
 }
 
 tasks.jacocoTestReport { reports { xml.required.set(true) } }
+
+// Конфигурация плагина org.sonarqube
+sonar {
+    properties {
+        property("sonar.projectKey", "hexlet_java-package")
+        property("sonar.organization", "hexlet")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
+}

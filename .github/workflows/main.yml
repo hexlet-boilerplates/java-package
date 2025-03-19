@@ -14,16 +14,27 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-      - uses: gradle/gradle-build-action@v3
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: 8.7
-      - run: ./gradlew checkstyleMain
-      - run: ./gradlew test
-      # - name: Publish code coverage
-      #   uses: paambaati/codeclimate-action@v9.0.0
-      #   env:
-      #     CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-      #     JACOCO_SOURCE_PATH: ${{github.workspace}}/src/main/java
+          fetch-depth: 0
+      - name: Execute Gradle build
+        run: ./gradlew build
+      - name: Generate coverage report
+        run: make report
+      # - name: Cache SonarQube packages
+      #   uses: actions/cache@v4
       #   with:
-      #     coverageCommand: make report
-      #     coverageLocations: ${{github.workspace}}/build/reports/jacoco/test/jacocoTestReport.xml:jacoco
+      #     path: ~/.sonar/cache
+      #     key: ${{ runner.os }}-sonar
+      #     restore-keys: ${{ runner.os }}-sonar
+      # - name: Cache Gradle packages
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: ~/.gradle/caches
+      #     key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
+      #     restore-keys: ${{ runner.os }}-gradle
+      # - name: Build and analyze
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   run: ./gradlew sonar --info
