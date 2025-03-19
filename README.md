@@ -7,7 +7,7 @@
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=hexlet-boilerplates_java-package&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=hexlet-boilerplates_java-package)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=hexlet-boilerplates_java-package&metric=coverage)](https://sonarcloud.io/summary/new_code?id=hexlet-boilerplates_java-package)
 
-A project template with only the bare minimum of structure. A good starting point for a small project. 
+A project template with only the bare minimum of structure. A good starting point for a small project.
 
 ## Start
 
