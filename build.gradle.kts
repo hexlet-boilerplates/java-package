@@ -5,8 +5,8 @@ plugins {
     application
     jacoco
     id("checkstyle")
-    id("io.freefair.lombok") version "8.6"
-    id("com.github.ben-manes.versions") version "0.50.0"
+    id("io.freefair.lombok") version "8.13.1"
+    id("com.github.ben-manes.versions") version "0.52.0"
     id("com.github.johnrengelman.shadow") version "8.1.1"
     // Плагин для публикации отчета о покрытии тестами на SonarQube
     id("org.sonarqube") version "6.0.1.5171"
@@ -21,10 +21,11 @@ application { mainClass.set("io.hexlet.Application") }
 repositories { mavenCentral() }
 
 dependencies {
-    implementation("org.apache.commons:commons-lang3:3.14.0")
+    implementation("org.apache.commons:commons-lang3:3.17.0")
     implementation("org.apache.commons:commons-collections4:4.4")
-    testImplementation(platform("org.junit:junit-bom:5.10.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+	testImplementation(platform("org.junit:junit-bom:5.12.2"))
+	testImplementation("org.junit.jupiter:junit-jupiter")
+	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.test {
