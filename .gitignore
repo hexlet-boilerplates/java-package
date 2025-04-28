@@ -12,3 +12,4 @@ bin
 .classpath
 .idea/
 .factorypath
+kls_database.db
