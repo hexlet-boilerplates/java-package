@@ -14,10 +14,13 @@ commons-collections4 = "4.5.0"
 junit-bom = "5.12.2"
 ##     ⬆ = "5.13.0-M1"
 ##     ⬆ = "5.13.0-M2"
+##     ⬆ = "5.13.0-M3"
+##     ⬆ = "5.13.0-RC1"
 lombok-plugin = "8.13.1"
 versions-plugin = "0.52.0"
 shadow-plugin = "8.1.1"
 sonarqube-plugin = "6.1.0.5360"
+##            ⬆ = "6.2.0.5505"
 
 [libraries]
 
