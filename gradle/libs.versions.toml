@@ -6,18 +6,12 @@ lombok = { id = "io.freefair.lombok", version.ref = "lombok-plugin" }
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow-plugin" }
 sonarqube = { id = "org.sonarqube", version.ref = "sonarqube-plugin" }
 
-com-diffplug-spotless = { id = "com.diffplug.spotless", version = "7.2.1" }
-
-io-freefair-lombok = { id = "io.freefair.lombok", version = "9.0.0-rc2" }
-
-com-gradleup-shadow = { id = "com.gradleup.shadow", version = "9.1.0" }
-
-org-sonarqube = { id = "org.sonarqube", version = "6.3.1.5724" }
+spotless = { id = "com.diffplug.spotless", version = "7.2.1" }
 
 [versions]
 
-commons-lang3 = "3.18.0"
-commons-collections4 = "4.5.0"
+# commons-lang3 = "3.18.0"
+# commons-collections4 = "4.5.0"
 junit-bom = "5.13.4"
 
 lombok-plugin = "9.0.0-rc2"
