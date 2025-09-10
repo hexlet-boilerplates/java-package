@@ -2,6 +2,7 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
+    // id("com.github.ben-manes.versions") version "0.52.0"
     id("com.diffplug.spotless") version "7.2.1"
 
     application
