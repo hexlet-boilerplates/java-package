@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build-run
 
 setup:
-	./gradlew wrapper --gradle-version 8.14
+	./gradlew wrapper --gradle-version 9.0.0
 
 clean:
 	./gradlew clean
@@ -25,7 +25,7 @@ report:
 	./gradlew jacocoTestReport
 
 lint:
-	./gradlew checkstyleMain
+	./gradlew spotlessApply
 
 update-deps:
 	./gradlew refreshVersions

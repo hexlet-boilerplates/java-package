@@ -10,5 +10,5 @@ rootProject.name = "java-package"
 
 plugins {
     // See https://jmfayard.github.io/refreshVersions
-    id("de.fayard.refreshVersions") version "0.60.5"
+    id("de.fayard.refreshVersions") version "0.60.6"
 }

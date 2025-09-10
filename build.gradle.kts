@@ -2,11 +2,11 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
+    id("com.diffplug.spotless") version "7.2.1"
+
     application
-    jacoco
-    checkstyle
+    // jacoco
     alias(libs.plugins.lombok)
-    alias(libs.plugins.versions)
     alias(libs.plugins.shadow)
     alias(libs.plugins.sonarqube)
 }
@@ -35,12 +35,32 @@ tasks.test {
     }
 }
 
-tasks.jacocoTestReport { reports { xml.required.set(true) } }
+spotless {
+    java {
+        // don't need to set target, it is inferred from java
 
-sonar {
-    properties {
-        property("sonar.projectKey", "hexlet-boilerplates_java-package")
-        property("sonar.organization", "hexlet-boilerplates")
-        property("sonar.host.url", "https://sonarcloud.io")
+        // apply a specific flavor of google-java-format
+        // googleJavaFormat('1.8').aosp().reflowLongStrings().skipJavadocFormatting()
+        // fix formatting of type annotations
+        importOrder()
+        googleJavaFormat().aosp()
+        formatAnnotations()
+        removeUnusedImports()
+        leadingTabsToSpaces(4)
+        endWithNewline()
+        // make sure every file has the following copyright header.
+        // optionally, Spotless can set copyright years by digging
+        // through git history (see "license" section below)
+        // licenseHeader '/* (C)$YEAR */'
     }
 }
+
+// tasks.jacocoTestReport { reports { xml.required.set(true) } }
+
+// sonar {
+//     properties {
+//         property("sonar.projectKey", "hexlet-boilerplates_java-package")
+//         property("sonar.organization", "hexlet-boilerplates")
+//         property("sonar.host.url", "https://sonarcloud.io")
+//     }
+// }
