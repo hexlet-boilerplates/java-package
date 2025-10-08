@@ -11,6 +11,7 @@ plugins {
     alias(libs.plugins.lombok)
     alias(libs.plugins.shadow)
     alias(libs.plugins.sonarqube)
+    id("com.github.ben-manes.versions") version "0.53.0"
 }
 
 group = "io.hexlet"
@@ -26,6 +27,7 @@ dependencies {
     testImplementation(platform(libs.junit.bom))
     testImplementation(libs.junit.jupiter)
     testRuntimeOnly(libs.junit.platform.launcher)
+    implementation("org.apache.commons:commons-lang3:3.19.0")
 }
 
 tasks.test {
