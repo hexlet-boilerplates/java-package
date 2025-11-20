@@ -1,5 +1,6 @@
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.Test
 import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 
 plugins {
     // id("com.github.ben-manes.versions") version "0.52.0"
@@ -23,17 +24,41 @@ repositories { mavenCentral() }
 dependencies {
     implementation(libs.commons.lang3)
     implementation(libs.commons.collections4)
-    testImplementation(platform(libs.junit.bom))
-    testImplementation(libs.junit.jupiter)
-    testRuntimeOnly(libs.junit.platform.launcher)
+    // testImplementation(platform(libs.junit.bom))
+    // testImplementation(libs.junit.jupiter)
+    // testRuntimeOnly(libs.junit.platform.launcher)
+}
+
+testing {
+    suites {
+        // Configure the built-in test suite
+        val test by getting(JvmTestSuite::class) {
+            // Use JUnit Jupiter test framework
+            useJUnitJupiter("5.12.1")
+        }
+    }
 }
 
 tasks.test {
-    useJUnitPlatform()
     testLogging {
-        exceptionFormat = TestExceptionFormat.FULL
-        events = setOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
         showStandardStreams = true
+
+        // какие события показывать
+        events(
+            TestLogEvent.FAILED,
+            TestLogEvent.PASSED,
+            TestLogEvent.SKIPPED,
+            TestLogEvent.STANDARD_OUT,
+            TestLogEvent.STANDARD_ERROR,
+        )
+
+        // формат исключений
+        exceptionFormat = TestExceptionFormat.FULL
+
+        // детали
+        showExceptions = true
+        showCauses = true
+        showStackTraces = true
     }
 }
 
@@ -54,6 +79,12 @@ spotless {
         // optionally, Spotless can set copyright years by digging
         // through git history (see "license" section below)
         // licenseHeader '/* (C)$YEAR */'
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
     }
 }
 

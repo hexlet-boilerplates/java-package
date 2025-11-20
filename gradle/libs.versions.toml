@@ -6,30 +6,22 @@ lombok = { id = "io.freefair.lombok", version.ref = "lombok-plugin" }
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow-plugin" }
 sonarqube = { id = "org.sonarqube", version.ref = "sonarqube-plugin" }
 
-spotless = { id = "com.diffplug.spotless", version = "7.2.1" }
+spotless = { id = "com.diffplug.spotless", version = "8.1.0" }
 
 [versions]
 
 # commons-lang3 = "3.18.0"
 # commons-collections4 = "4.5.0"
-junit-bom = "5.13.4"
 
-lombok-plugin = "9.0.0-rc2"
-shadow-plugin = "9.1.0"
-sonarqube-plugin = "6.3.1.5724"
-
-junit = "5.13.4"
-## ⬆ = "6.0.0-M1"
-## ⬆ = "6.0.0-M2"
-## ⬆ = "6.0.0-RC1"
-## ⬆ = "6.0.0-RC2"
+lombok-plugin = "9.1.0"
+shadow-plugin = "9.2.2"
+sonarqube-plugin = "7.1.0.6387"
+##            ⬆ = "7.0.0.6105"
+##            ⬆ = "7.0.1.6134"
+##            ⬆ = "7.1.0.6387"
 
 [libraries]
 
-commons-lang3 = "org.apache.commons:commons-lang3:3.18.0"
+commons-lang3 = "org.apache.commons:commons-lang3:3.20.0"
 commons-collections4 = "org.apache.commons:commons-collections4:4.5.0"
-junit-bom = { group = "org.junit", name = "junit-bom", version.ref = "junit" }
-junit-jupiter = { module = "org.junit.jupiter:junit-jupiter" }
-junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
-
 spotbugs-annotations = "com.github.spotbugs:spotbugs-annotations:4.9.4"

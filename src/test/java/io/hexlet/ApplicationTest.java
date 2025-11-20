@@ -1,6 +1,6 @@
 package io.hexlet;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -18,14 +18,14 @@ class ApplicationTest {
         System.setOut(new PrintStream(output));
     }
 
+    @AfterEach
+    public void tearDown() {
+        System.setOut(standardOut);
+    }
+
     @Test
     void testMain() {
         Application.main(null);
         assertEquals("Hello, World!", output.toString(StandardCharsets.UTF_8).trim());
-    }
-
-    @AfterEach
-    public void tearDown() {
-        System.setOut(standardOut);
     }
 }
