@@ -10,14 +10,13 @@ updates:
         update-types: [minor, patch]
       actions-major:
         update-types: [major]
-  - package-ecosystem: bundler
+  - package-ecosystem: gradle
     directory: /
     schedule:
       interval: weekly
-    labels: [dependencies, automated, ruby]
+    labels: [dependencies, automated, java]
     groups:
-      bundler-minor-patch:
+      gradle-minor-patch:
         update-types: [minor, patch]
-      bundler-major:
+      gradle-major:
         update-types: [major]
-

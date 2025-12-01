@@ -1,10 +1,10 @@
 import org.gradle.api.tasks.testing.Test
-import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
-    // id("com.github.ben-manes.versions") version "0.52.0"
-    // id("com.diffplug.spotless") version "7.2.1"
+    // id("com.github.ben-manes.versions")
+    // id("com.diffplug.spotless")
 
     application
     // jacoco
@@ -34,7 +34,7 @@ testing {
         // Configure the built-in test suite
         val test by getting(JvmTestSuite::class) {
             // Use JUnit Jupiter test framework
-            useJUnitJupiter("5.12.1")
+            useJUnitJupiter(libs.versions.junit.get())
         }
     }
 }
