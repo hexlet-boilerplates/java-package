@@ -1,22 +1,63 @@
+---
+# Dependabot configuration
+#
+# This file configures automated dependency updates for a small Java/Gradle project.
+#
+# Goals:
+#  - keep dependencies and Gradle plugins up to date with minimal noise
+#  - keep GitHub Actions workflow updates separate from application dependencies
+#  - batch minor and patch updates into a few focused PRs
+#  - keep potentially breaking (major) updates visible as separate PRs
+#
+# Simplified grouping strategy for this project:
+#  - One group for Gradle plugins (Spotless, Lombok, Shadow, Sonar, etc.)
+#  - One catch-all group for all other Gradle dependencies (libraries, test stack)
+#  - Major updates are not grouped and will be opened as separate PRs by default
+#
 version: 2
 updates:
+  # 1) Keep GitHub Actions workflows up to date
   - package-ecosystem: github-actions
-    directory: /
+    directory: /  # Look for workflow files in the repo root
     schedule:
       interval: weekly
     labels: [dependencies, automated, actions]
     groups:
       actions-minor-patch:
+        # Group all non-breaking (minor + patch) updates into a single PR
         update-types: [minor, patch]
       actions-major:
+        # Major updates are potentially breaking → separate PRs
         update-types: [major]
+  # 2) Java / Gradle dependencies (libraries + plugins)
   - package-ecosystem: gradle
-    directory: /
+    directory: /  # Root of the Gradle project
     schedule:
       interval: weekly
-    labels: [dependencies, automated, java]
+    labels: [dependencies, automated, gradle]
     groups:
-      gradle-minor-patch:
+      gradle-plugins-minor-patch:
+        # Gradle plugins from the version catalog:
+        #  - io.freefair.lombok
+        #  - com.diffplug.spotless
+        #  - com.gradleup.shadow
+        #  - org.sonarqube
+        # (and any other Gradle plugins you might add later)
+        patterns:
+          - io.freefair.lombok
+          - com.diffplug.spotless
+          - com.gradleup.shadow
+          - org.sonarqube
         update-types: [minor, patch]
-      gradle-major:
-        update-types: [major]
+      gradle-deps-minor-patch:
+        # All other Gradle dependencies (libraries, test stack, commons, etc.)
+        # will be grouped together for minor + patch updates.
+        #
+        # Examples in this project:
+        #  - org.apache.commons:commons-lang3
+        #  - org.apache.commons:commons-collections4
+        #  - junit (via version catalog)
+        #
+        # Any major updates for these dependencies will be opened
+        # as separate PRs by default.
+        update-types: [minor, patch]
