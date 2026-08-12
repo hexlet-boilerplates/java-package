@@ -3,13 +3,12 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
-    // id("com.github.ben-manes.versions")
-    // id("com.diffplug.spotless")
-
     application
     // jacoco
     alias(libs.plugins.spotless)
     alias(libs.plugins.lombok)
+    alias(libs.plugins.versions)
+    alias(libs.plugins.version.catalog.update)
     alias(libs.plugins.shadow)
     alias(libs.plugins.sonarqube)
 }
@@ -97,3 +96,10 @@ java {
 //         property("sonar.host.url", "https://sonarcloud.io")
 //     }
 // }
+
+// versionCatalogUpdate пишет свежие версии прямо в gradle/libs.versions.toml,
+// поэтому руками их сверять не нужно. Ключи не сортируются: порядок в каталоге
+// смысловой, по группам зависимостей.
+versionCatalogUpdate {
+    sortByKey = false
+}
