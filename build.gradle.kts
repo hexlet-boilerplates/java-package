@@ -4,13 +4,12 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
     application
-    // jacoco
+    jacoco
     alias(libs.plugins.spotless)
     alias(libs.plugins.lombok)
     alias(libs.plugins.versions)
     alias(libs.plugins.version.catalog.update)
     alias(libs.plugins.shadow)
-    alias(libs.plugins.sonarqube)
 }
 
 group = "io.hexlet"
@@ -87,15 +86,46 @@ java {
     }
 }
 
-// tasks.jacocoTestReport { reports { xml.required.set(true) } }
+// Точка входа из-под покрытия исключена: у класса с одним main jacoco считает
+// ещё и неявный конструктор, который никто не вызывает, и на маленьком проекте
+// это одно тянет покрытие вниз.
+val coverageExcludes = listOf("io/hexlet/Application.class")
 
-// sonar {
-//     properties {
-//         property("sonar.projectKey", "hexlet-boilerplates_java-package")
-//         property("sonar.organization", "hexlet-boilerplates")
-//         property("sonar.host.url", "https://sonarcloud.io")
-//     }
-// }
+fun JacocoReportBase.excludeEntryPoint() {
+    classDirectories.setFrom(
+        files(classDirectories.files.map { fileTree(it) { exclude(coverageExcludes) } }),
+    )
+}
+
+// Отчёт о покрытии считается сразу после тестов, отдельный вызов не нужен.
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    excludeEntryPoint()
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+}
+
+tasks.test { finalizedBy(tasks.jacocoTestReport) }
+
+// Порог покрытия: ниже него `./gradlew build` падает,
+// и сборка в CI краснеет вместе с ним.
+tasks.jacocoTestCoverageVerification {
+    dependsOn(tasks.jacocoTestReport)
+    excludeEntryPoint()
+    violationRules {
+        rule {
+            limit {
+                counter = "INSTRUCTION"
+                value = "COVEREDRATIO"
+                minimum = "0.80".toBigDecimal()
+            }
+        }
+    }
+}
+
+tasks.check { dependsOn(tasks.jacocoTestCoverageVerification) }
 
 // versionCatalogUpdate пишет свежие версии прямо в gradle/libs.versions.toml,
 // поэтому руками их сверять не нужно. Ключи не сортируются: порядок в каталоге

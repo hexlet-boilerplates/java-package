@@ -10,7 +10,7 @@
 #  - keep potentially breaking (major) updates visible as separate PRs
 #
 # Simplified grouping strategy for this project:
-#  - One group for Gradle plugins (Spotless, Lombok, Shadow, Sonar, etc.)
+#  - One group for Gradle plugins (Spotless, Lombok, Shadow, etc.)
 #  - One catch-all group for all other Gradle dependencies (libraries, test stack)
 #  - Major updates are not grouped and will be opened as separate PRs by default
 #
@@ -41,13 +41,11 @@ updates:
         #  - io.freefair.lombok
         #  - com.diffplug.spotless
         #  - com.gradleup.shadow
-        #  - org.sonarqube
         # (and any other Gradle plugins you might add later)
         patterns:
           - io.freefair.lombok
           - com.diffplug.spotless
           - com.gradleup.shadow
-          - org.sonarqube
         update-types: [minor, patch]
       gradle-deps-minor-patch:
         # All other Gradle dependencies (libraries, test stack, commons, etc.)

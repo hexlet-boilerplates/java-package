@@ -23,6 +23,10 @@ test:
 
 report:
 	./gradlew jacocoTestReport
+	# отчёт: build/reports/jacoco/test/html/index.html
+
+test-coverage:
+	./gradlew test jacocoTestCoverageVerification
 
 lint:
 	./gradlew spotlessCheck
