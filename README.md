@@ -28,7 +28,7 @@ make run
 make test
 ```
 
-## Run checkstyle
+## Run linter
 
 ```bash
 make lint
