@@ -6,9 +6,9 @@ version-catalog-update = { id = "nl.littlerobots.version-catalog-update", versio
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow-plugin" }
 
 [versions]
-spotless-plugin = "8.10.0"
+spotless-plugin = "8.10.2"
 lombok-plugin = "9.5.0"
-versions-plugin = "0.61.0"
+versions-plugin = "0.64.0"
 catalog-update-plugin = "1.1.1"
 shadow-plugin = "9.6.1"
 commons-lang3 = "3.20.0"
