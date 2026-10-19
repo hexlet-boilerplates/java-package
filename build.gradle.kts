@@ -82,9 +82,13 @@ spotless {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(25)
+        languageVersion = JavaLanguageVersion.of(27)
     }
 }
+
+// Версия JaCoCo задана явно: встроенная в Gradle отстаёт от JDK, и на новой
+// Java агент падает с IllegalClassFormatException.
+jacoco { toolVersion = libs.versions.jacoco.get() }
 
 // Точка входа из-под покрытия исключена: у класса с одним main jacoco считает
 // ещё и неявный конструктор, который никто не вызывает, и на маленьком проекте
