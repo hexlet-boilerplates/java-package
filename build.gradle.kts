@@ -10,6 +10,7 @@ plugins {
     alias(libs.plugins.versions)
     alias(libs.plugins.version.catalog.update)
     alias(libs.plugins.shadow)
+    alias(libs.plugins.errorprone)
 }
 
 group = "io.hexlet"
@@ -20,6 +21,7 @@ application { mainClass.set("io.hexlet.Application") }
 repositories { mavenCentral() }
 
 dependencies {
+    errorprone(libs.errorprone.core)
     implementation(libs.commons.lang3)
     implementation(libs.commons.collections4)
     // testImplementation(platform(libs.junit.bom))

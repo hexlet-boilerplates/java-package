@@ -4,6 +4,7 @@ lombok = { id = "io.freefair.lombok", version.ref = "lombok-plugin" }
 versions = { id = "io.github.ben-manes.versions", version.ref = "versions-plugin" }
 version-catalog-update = { id = "nl.littlerobots.version-catalog-update", version.ref = "catalog-update-plugin" }
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow-plugin" }
+errorprone = { id = "net.ltgt.errorprone", version.ref = "errorprone-plugin" }
 
 [versions]
 spotless-plugin = "8.10.4"
@@ -11,14 +12,17 @@ lombok-plugin = "9.8.2"
 versions-plugin = "0.66.0"
 catalog-update-plugin = "1.1.1"
 shadow-plugin = "9.6.1"
+errorprone-plugin = "5.1.1"
 commons-lang3 = "3.21.0"
 commons-collections4 = "4.6.0"
 spotbugs-annotations = "4.10.5"
 junit = "6.1.3"
 jacoco = "0.8.15"
+errorprone = "2.51.0"
 
 [libraries]
 commons-lang3 = { module = "org.apache.commons:commons-lang3", version.ref = "commons-lang3" }
 commons-collections4 = { module = "org.apache.commons:commons-collections4", version.ref = "commons-collections4" }
 spotbugs-annotations = { module = "com.github.spotbugs:spotbugs-annotations", version.ref = "spotbugs-annotations" }
 jacoco-agent = { module = "org.jacoco:org.jacoco.agent", version.ref = "jacoco" }
+errorprone-core = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone" }

@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build-run
 
 setup:
-	./gradlew wrapper --gradle-version 9.8.1
+	./gradlew wrapper --gradle-version 9.8.2
 
 clean:
 	./gradlew clean
@@ -29,7 +29,7 @@ test-coverage:
 	./gradlew test jacocoTestCoverageVerification
 
 lint:
-	./gradlew spotlessCheck
+	./gradlew spotlessCheck compileJava compileTestJava
 
 lint-fix:
 	./gradlew spotlessApply
