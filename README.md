@@ -1,6 +1,6 @@
 # java-package
 
-![Java CI](https://github.com/hexlet-boilerplates/java-package/workflows/Java%20CI/badge.svg)
+![Java CI](https://github.com/hexlet-boilerplates/java-package/actions/workflows/main.yml/badge.svg)
 
 A project template with only the bare minimum of structure. A good starting point for a small project.
 
@@ -37,7 +37,7 @@ make lint
 ## Check update dependencies and plugins
 
 ```bash
-make update
+make update-deps
 ```
 
 ## Requirements
