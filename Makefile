@@ -10,7 +10,8 @@ build:
 	./gradlew clean build
 
 install:
-	./gradlew clean install
+	mise exec -- hk install --mise
+	./gradlew clean installDist
 
 run-dist:
 	./build/install/java-package/bin/java-package

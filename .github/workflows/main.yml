@@ -12,4 +12,4 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v6
       - run: make test
-      - run: make lint
+      - run: mise exec -- hk check --all
