@@ -1,5 +1,9 @@
 [tools]
 java = "temurin-27"
 gradle = "latest"
+rumdl = "latest"
+typos = "latest"
+jactionlint = "latest"
+shellcheck = "latest"
 hk = "latest"
 pkl = "latest"
